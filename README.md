@@ -1,5 +1,7 @@
 ## OnioNN
+
 [Notes](https://docs.google.com/document/d/1TwMF-A1KDAO62_rVFWCpWVGNhkPmtN_4y_vy368_los/edit)
+[Kaggle](https://www.kaggle.com/selich/ori-classification-of-sounds-using-cnn)
 
 ### Video Material
 - [Audio Signal Processing](https://www.youtube.com/playlist?list=PL-wATfeyAMNqIee7cH3q1bh4QJFAaeNv0)
