@@ -1,6 +1,8 @@
+import matplotlib.pyplot as plt
+
+
 def plot_signals(signals):
-    fix, axes = plt.subplots(nrows=2, ncol=5, sharex=False, sharey=True, figsize=(20,5))
-    fig.subtitle("Vremenska serija", size=16)
+    fig, axes = plt.subplots(nrows=2, ncols=5, sharex=False, sharey=True, figsize=(20,5))
     i = 0
     for x in range(2):
         for y in range(5):
@@ -11,8 +13,7 @@ def plot_signals(signals):
             i += 1
 
 def plot_fft(fft):
-    fix, axes = plt.subplots(nrows=2, ncol=5, sharex=False, sharey=True, figsize=(20,5))
-    fig.subtitle("Furijeova transformacija", size=16)
+    fig, axes = plt.subplots(nrows=2, ncols=5, sharex=False, sharey=True, figsize=(20,5))
     i = 0
     for x in range(2):
         for y in range(5):
@@ -25,8 +26,7 @@ def plot_fft(fft):
             i += 1
 
 def plot_fbank(fbank):
-    fix, axes = plt.subplots(nrows=2, ncol=5, sharex=False, sharey=True, figsize=(20,5))
-    fig.subtitle("Filter bank", size=16)
+    fig, axes = plt.subplots(nrows=2, ncols=5, sharex=False, sharey=True, figsize=(20,5))
     i = 0
     for x in range(2):
         for y in range(5):
@@ -39,8 +39,7 @@ def plot_fbank(fbank):
             i += 1
 
 def plot_mfccs(mfccs):
-    fix, axes = plt.subplots(nrows=2, ncol=5, sharex=False, sharey=True, figsize=(20,5))
-    fig.subtitle("Mel frekventni spektrum", size=16)
+    fig, axes = plt.subplots(nrows=2, ncols=5, sharex=False, sharey=True, figsize=(20,5))
     i = 0
     for x in range(2):
         for y in range(5):
