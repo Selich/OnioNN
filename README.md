@@ -11,6 +11,7 @@ Osnovni cilj projekta je formirati neuronske mreze (CNN i RNN) za klasifikaciju 
 Početni - 300 .wav fajlova, razlicitih dužina. Po 30 fajlova za 10 klasa instrumenata. 
 Predstavlja podskup FSDKaggle2018 seta. Klase koje su zastupljene u datasetu su Saxophone, Violin_or_fiddle, Hi-hat, Snare_drum, Acoustic_guitar, Double_bass, Cello, Bass_drum, Flute i Clarinet. Svi snimci su samplovani sa frekvencijom od 44,1kHz i imaju 16bit bit depth. Podskup je uzet, ne samo zbog vremena treniranja, vec i zato sto na ovim kalasama su potvrđene ground_truth labele za snimke. U okviru ovog notebook-a predstavljena je obrada originalnih .wav fajlova. Dve glavne izmene su downsampling na 16kHz, kako bismo zadržali niže frekvencije (do 8kHz), koje sadrže relevantnije podatke, i eliminisanje takozvanog "dead space"-a u zvuku gde je intenzitet zvuka zanemarljiv. Rezultat obrade su 300 istoimenih .wav fajlova u "clean" direktorijumu.
 
+
 ### Cilj modela 
 Cilj modela je da tačno kalsifikuje zvuke iz prethodno navedenih klasa. Ulaz mreže ce biti MFCC spektrogrami formirani na osnovu prethodno obrađenih .wav fajlova. Očekivani izlaz je labela instrumenta koji je proizveo zvuk. Preciznije, iz obradjenih .wav fajlova selektujemo po 0,1s iz nasumično odabranih snimaka. Dalje, nad njima primenjujemo MFCC transformaciju sa sirinom prozora od 25ms, pomerajem od 10ms i 13 mfc koeficijenata. 
 
