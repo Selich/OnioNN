@@ -22,18 +22,18 @@ Dobijeni spektrogram se zatim preoblikuje tako da moze da se koristi kao ulaz za
 Kao signal, zvuk se moze opisati pomocu svoje amplitude (maksimalnog otklona) i frekvencije (brzine oscilacije). Pored ovih karakteristika, svaki zvuk ima i svoje harmonike. Oni predstavaljaju pratece frekvencije koje nastaju kao posledica fizickih karakteristika izvora i stvaraju manje nepravilnosti u signalu na osnovu kojih mozemo da prepoznamo izvor zvuka (npr. ista nota na klaviru i gitari se mogu lako razaznati).  
 
 Jedna alternativna metoda za prepoznavanje izvora bi bila *Amplitude envelope*. Ona predstavlja niz maksimalnih vrednosti amplitude po vremenskim intervalima koji sadrze vise vrednsoti zvuka. 
-![envelope_placeholder](envelope.png)
+![envelope_placeholder](./src/envelope.png)
 Ova metoda je najpogodnija za kratke zvukove koji mogu da se posmatraju u kontektstu ADSR modela. Ovde posmatramo takozvane Attack, Decay, Sustain i Release faze u amplitude envelope i na osnovu njihovog trajanja odredjujemo izvor.
 
 ### Spektrogram
-Opstija metoda za klasifikaciju zvuka, za koju smo se odlucili, je primena podataka iz frekventnog domena. Konkretno, ulazi  mreza su **spektrogrami**. ![spec_placeholder](spectrogram.png)
+Opstija metoda za klasifikaciju zvuka, za koju smo se odlucili, je primena podataka iz frekventnog domena. Konkretno, ulazi  mreza su **spektrogrami**. ![spec_placeholder](./src/spectrogram.png)
 Spektrogram predstavlja intenzitet zvuka kao funkciju vremena i frekvencije, odnosno za svaki trenutak mi dobijamo informaciju o tome koliko je energetski zastupljena svaka frekvencija u zvuku. Najcesce, umesto trodimenzionalnog grafa, koristi se 2D predstava gde boja predstavlja intenzitet odredjene frekvencije. Na datom primeru moze se primetiti da u ljudskom govoru su najzastupljenije nize frekvencije.
 
 Spektrogrami se formiraju primenom **Furieove transformacija** nad nizom kracih podintervala (<0,1s). Ovim se, iz signala datog u vremenskom domenu (.wav fajl), izvace karakteristike u frekventom domenu. Sirina intervala je izabrana tako da zvuk ima priblizno konstantne karakteristike. Prilikom prozoriranja, Koristicemo Hanovu prozorsku funkciju kako bismo izbegli curenje spektra, odnosno javljanje novih frekvencija u pdacima koje bi remetile treniranje. Susedni intervali ce se preklapati, kako nebi doslo do gubitka podataka na krajevima intervala. 
 
 Dodatno koristicemo *Mel Filter Bank*. Odnosno od svih frekvencija ciju energiju nalazimo primenom furieove transformacija zadrzavamo samo odredjeni podskup (mi smo izabrali 26) frekvencija, pri cemu ce nize frekvencije biti vise zastupljene. Ovo radimo u cilju emuliranja ljudksog sluha. Na kraju koristimo *Descrete Cosine Transform* kako bismo eliminisali korelacije unutar spektrograma. Krajnji rezultat, koji ce biti ulaz mreza, je Spektrogram dimenzija 13x9. 13 predstavlja broj **Mel-frequency cepstral** koeficijenata, tj. reprezentativnih frekvencija dobijenih primenom DSC-a, a 9 predstavlja broj podintervala u audio snimku od 0,1s u kojima evaluiramo intenzitete frekvencija. Ovi spektrogrami ce biti formirani na osnovu prethodno obradjenih .wav fajlova. 
 
-![mfcc_placeholder](mfcc.jpeg)
+![mfcc_placeholder](./src/mfcc.jpeg)
 
 ## Struktura projekta
 
