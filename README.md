@@ -1,4 +1,7 @@
-## OnioNN
+## OnioNN - Klasifikacija audio signala pomoću neuralni mreža
+
+### Link
+- https://github.com/Selich/OnioNN
 
 [Notes](https://docs.google.com/document/d/1TwMF-A1KDAO62_rVFWCpWVGNhkPmtN_4y_vy368_los/edit)
 [Kaggle](https://www.kaggle.com/selich/ori-classification-of-sounds-using-cnn)
@@ -9,5 +12,3 @@
 - [Deep Learning for Audio Classification](https://www.youtube.com/watch?v=Z7YM-HAz-IY&list=PLhA3b2k8R3t2Ng1WW_7MiXeh1pfQJQi_P)
 
 
-### Links
-- https://github.com/musikalkemist/AudioSignalProcessingForML
